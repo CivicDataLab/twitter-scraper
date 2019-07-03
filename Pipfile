@@ -8,6 +8,7 @@ verify_ssl = true
 [packages]
 pylint = "*"
 tweepy = "*"
+sqlalchemy = "*"
 
 [requires]
 python_version = "3.6"
