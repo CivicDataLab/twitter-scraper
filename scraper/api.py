@@ -5,6 +5,7 @@ import tweepy
 
 from settings import ACCESS_KEY, ACCESS_SECRET, CONSUMER_KEY, CONSUMER_SECRET
 
+
 def get_api_handler():
     '''
     configure the credentials and returns an object for accessing the API.
