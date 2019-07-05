@@ -21,9 +21,9 @@ def save_tweets(tweets):
     session = session()
 
     for tweet in tweets:
-        tweet_json = TweetData(tweet._json)
+        tweet_json = TweetData(tweet)
         session.add(tweet_json)
-        print(tweet.text.encode('utf-8'))
+        # print(tweet.text.encode('utf-8'))
         session.commit()
 
 
