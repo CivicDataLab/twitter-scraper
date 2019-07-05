@@ -93,6 +93,11 @@ def process_tweets(opts):
             time.sleep(5)
 
 
+def initiate_stream(opts):
+    utils.init_logger(logger, opts.log_level)
+    process_tweets(opts)
+
+
 if __name__ == "__main__":
     opts = args.parse_command_line()
 
@@ -100,5 +105,4 @@ if __name__ == "__main__":
         sys.stderr.write(
             '%s: error: Must provide list of track keywords.\n' % __file__)
         sys.exit()
-    utils.init_logger(logger, opts.log_level)
-    process_tweets(opts)
+    initiate_stream(opts)
