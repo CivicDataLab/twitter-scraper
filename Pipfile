@@ -9,6 +9,7 @@ verify_ssl = true
 pylint = "*"
 tweepy = "*"
 sqlalchemy = "*"
+simplejson = "*"
 
 [requires]
 python_version = "3.6"
