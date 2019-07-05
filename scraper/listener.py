@@ -7,6 +7,7 @@ import simplejson as json
 
 import message_recognizers
 import utils
+from load_tweets import save_tweets
 
 MISSING_FIELD_VALUE = ''
 
@@ -84,6 +85,8 @@ class StreamListener(tweepy.StreamListener):
             if self.should_stop():
                 self.running = False
                 return False
+
+        save_tweets([stream_data.strip()])
         print(stream_data.strip())
 
     def parse_limit_and_dispatch(self, stream_data):

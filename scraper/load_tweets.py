@@ -26,6 +26,7 @@ def save_tweets(tweets):
         print(tweet.text.encode('utf-8'))
         session.commit()
 
+
 if __name__ == '__main__':
     if len(sys.argv) < 2:
         print('Please provide the hashtag to search for')

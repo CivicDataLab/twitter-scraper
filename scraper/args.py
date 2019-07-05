@@ -7,11 +7,6 @@ def csv_args(value):
     return map(str, value.split(","))
 
 
-def csv_ints(value):
-    """ Parse a CSV string into an array of ints. """
-    return map(int, value.split(","))
-
-
 def userids_type(value):
     """ Alias for csv_args.  Parse list of userids into array of strings. """
     return csv_args(value)
