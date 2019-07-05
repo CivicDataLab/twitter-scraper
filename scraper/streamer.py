@@ -2,16 +2,14 @@ import sys
 import time
 
 import logging
-import os
 import tweepy
 
 import args
 import utils
 from listener import StreamListener
+from settings import ACCESS_KEY, ACCESS_SECRET, CONSUMER_KEY, CONSUMER_SECRET
 
 logger = logging.getLogger(__name__)
-
-RETRY_LIMIT = 10
 
 """
     List of named location query (--location-query) names and their
@@ -36,14 +34,8 @@ def make_filter_args(opts):
 def process_tweets(opts):
     """Set up and process incoming streams."""
     try:
-        consumer_key = os.environ['CONSUMER_KEY']
-        consumer_secret = os.environ['CONSUMER_SECRET']
-        access_key = os.environ['ACCESS_KEY']
-        access_secret = os.environ['ACCESS_SECRET']
-        logger.debug('consumer_key={consumer_key}, consumer_secret={consumer_secret}'.format(**locals()))
-        logger.debug('access_key={access_key}, access_secret={access_secret}'.format(**locals()))
-        auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
-        auth.set_access_token(access_key, access_secret)
+        auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
+        auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
     except KeyError as e:
         logger.error('You must set the %s API key environment variable.', e)
         return
